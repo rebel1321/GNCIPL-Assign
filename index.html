@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Satyam Tripathi | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="#home" class="logo">Satyam<span>Tripathi</span></a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero container">
+    <div class="hero-inner">
+      <h1 class="hero-title">Hello, I'm <span>Satyam Tripathi</span></h1>
+      <p class="hero-subtitle">Full-Stack Developer · MERN & Spring Boot</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="#contact" class="btn ghost">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <!-- Frontend -->
+      <article class="card">
+        <h3 class="card-title">Frontend</h3>
+        <div class="logo-row">
+          <img src="assets/tech_logo/html.png" alt="HTML" title="HTML">
+          <img src="assets/tech_logo/css.png" alt="CSS" title="CSS">
+          <img src="assets/tech_logo/javascript.png" alt="JavaScript" title="JavaScript">
+          <img src="assets/tech_logo/reactjs.png" alt="React" title="React">
+          <img src="assets/tech_logo/tailwindcss.png" alt="Tailwind CSS" title="Tailwind CSS">
+        </div>
+      </article>
+      <!-- Backend -->
+      <article class="card">
+        <h3 class="card-title">Backend</h3>
+        <div class="logo-row">
+          <img src="assets/tech_logo/springboot.png" alt="Spring Boot" title="Spring Boot">
+          <img src="assets/tech_logo/nodejs.png" alt="Node.js" title="Node.js">
+          <img src="assets/tech_logo/express.png" alt="Express.js" title="Express.js">
+          <img src="assets/tech_logo/mysql.png" alt="MySQL" title="MySQL">
+          <img src="assets/tech_logo/mongodb.png" alt="MongoDB" title="MongoDB">
+        </div>
+      </article>
+      <!-- Languages -->
+      <article class="card">
+        <h3 class="card-title">Languages</h3>
+        <div class="logo-row">
+          <img src="assets/tech_logo/java.png" alt="Java" title="Java">
+          <img src="assets/tech_logo/javascript.png" alt="JavaScript" title="JavaScript">
+          <img src="assets/tech_logo/typescript.png" alt="TypeScript" title="TypeScript">
+        </div>
+      </article>
+      <!-- Tools -->
+      <article class="card">
+        <h3 class="card-title">Tools</h3>
+        <div class="logo-row">
+          <img src="assets/tech_logo/git.png" alt="Git" title="Git">
+          <img src="assets/tech_logo/github.png" alt="GitHub" title="GitHub">
+          <img src="assets/tech_logo/vscode.png" alt="VS Code" title="VS Code">
+          <img src="assets/tech_logo/postman.png" alt="Postman" title="Postman">
+          <img src="assets/tech_logo/mc.png" alt="MongoDB Compass" title="MongoDB Compass">
+          <img src="assets/tech_logo/vercel.png" alt="Vercel" title="Vercel">
+          <img src="assets/tech_logo/render.png" alt="Render" title="Render">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section container">
+    <h2 class="section-title">Experience</h2>
+
+    <article class="card media">
+      <img class="media-logo" src="assets/company_logo/luminaries.png" alt="Luminaries logo">
+      <div class="media-body">
+        <h3>Backend Developer <span class="at">@ Luminaries</span></h3>
+        <p class="muted">March 2025 – May 2025</p>
+        <p>
+          Built and integrated backend for student & teacher management, daily fee tracking, secure admin login, automated fee receipt emails, and pending fee logic.
+          Collaborated in a 3-member team focusing on backend development and seamless API integration with the React frontend.
+        </p>
+        <ul class="chip-row">
+          <li class="chip">Node.js</li><li class="chip">Express.js</li><li class="chip">MongoDB</li>
+          <li class="chip">Nodemailer</li><li class="chip">REST API</li><li class="chip">Git</li><li class="chip">Postman</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card media">
+      <img class="media-logo" src="assets/company_logo/gssoc.png" alt="GSSOC logo">
+      <div class="media-body">
+        <h3>Open Source Contributor <span class="at">@ GirlScript Summer of Code</span></h3>
+        <p class="muted">Oct 2024 – Nov 2024</p>
+        <p>
+          Explored open-source codebases, understood project structures, practiced GitHub & Postman, and built confidence reading real-world projects.
+        </p>
+        <ul class="chip-row">
+          <li class="chip">GitHub</li><li class="chip">Open Source</li><li class="chip">Postman</li><li class="chip">Codebase Navigation</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section container">
+    <h2 class="section-title">Education</h2>
+    <div class="list">
+      <article class="card media">
+        <img class="media-logo" src="assets/education_logo/hnbgu.png" alt="HNB Garhwal University">
+        <div class="media-body">
+          <h3>B.Tech (IT) <span class="at">HNB Garhwal University, Srinagar</span></h3>
+          <p class="muted">Nov 2022 – May 2026 • 7.3 CGPA</p>
+          <p>Core: DS & Algo, OOP, DBMS, Web Development, Software Engineering.</p>
+        </div>
+      </article>
+
+      <article class="card media">
+        <img class="media-logo" src="assets/education_logo/RBCV.png" alt="RBCV">
+        <div class="media-body">
+          <h3>CBSE (XII) – PCM + IT <span class="at">RBCV</span></h3>
+          <p class="muted">Apr 2021 – Mar 2022 • 85.6%</p>
+        </div>
+      </article>
+
+      <article class="card media">
+        <img class="media-logo" src="assets/education_logo/RBCV.png" alt="RBCV">
+        <div class="media-body">
+          <h3>CBSE (X) Science + IT <span class="at">RBCV</span></h3>
+          <p class="muted">Apr 2019-Mar 2020 • 91.8%</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <article class="card project">
+        <img src="assets/work_logo/jobPortal.png" alt="Job Portal project cover" class="project-cover">
+        <div class="project-body">
+          <h3>Job Portal</h3>
+          <p>React + Node.js job portal with authentication, live listings & resume uploads.</p>
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/rebel1321/JobPortalFullStack" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn small ghost" href="https://jobportalfrontend-ivory.vercel.app/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project">
+        <img src="assets/work_logo/uberClone.png" alt="Uber Clone project cover" class="project-cover">
+        <div class="project-body">
+          <h3>Live Ride Booking App (Uber Clone)</h3>
+          <p>Real-time booking with Leaflet maps, Ola Maps API, Socket.IO, role-based auth.</p>
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/rebel1321/Uber" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn small ghost" href="https://uber-sepia-five.vercel.app/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project">
+        <img src="assets/work_logo/blogApp.png" alt="Blog App project cover" class="project-cover">
+        <div class="project-body">
+          <h3>Full-Stack Blog App (Appwrite)</h3>
+          <p>Auth, post creation, secure image upload, protected routes & clean dashboard.</p>
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/rebel1321/BlogSite" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn small ghost" href="https://blog-site-self-two.vercel.app/" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project">
+        <img src="assets/work_logo/ecommerceApi.png" alt="E-Commerce API project cover" class="project-cover">
+        <div class="project-body">
+          <h3>E-Commerce REST API (Spring Boot)</h3>
+          <p>JWT auth, role-based access, pagination & filtering with MySQL.</p>
+          <div class="project-links">
+            <a class="btn small" href="https://github.com/rebel1321/EcommerceAPI-SpringBoot" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn small ghost" href="https://documenter.getpostman.com/view/37609437/2sB34kDyFz#415c7fcf-945d-41f5-8470-e30641602696" target="_blank" rel="noopener">Docs</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section container">
+    <h2 class="section-title">Contact</h2>
+    <form class="card form" id="contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+      </div>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 Satyam Tripathi</p>
+      <a href="#home" class="back-to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
