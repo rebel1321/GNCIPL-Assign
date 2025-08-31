@@ -12,8 +12,16 @@ const Dashboard = () => {
     });
 
     const logout = () => {
-        toast.info('Logged out successfully');
+        // Clear all recruiter session data
+        localStorage.removeItem("user");
+        localStorage.removeItem("userType");
+        localStorage.removeItem("isLoggedIn");
+        
+        toast.info('Recruiter logged out successfully');
         navigate('/');
+        
+        // Force page reload to reset all component states
+        window.location.reload();
     };
 
     return (

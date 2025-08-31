@@ -81,7 +81,6 @@ const ApplyJob = () => {
                         className="flex items-center text-slate-400 hover:text-white mb-8 transition-colors duration-300 group"
                     >
                         <img src={assets.back_arrow_icon} alt="Back" className="h-5 w-5 mr-3 filter brightness-150 group-hover:brightness-200" />
-                        <span className="font-medium">Back to Jobs</span>
                     </button>
 
                     <div className="glass bg-slate-800/20 border border-slate-700/50 rounded-2xl overflow-hidden">

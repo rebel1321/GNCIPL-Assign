@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { jobsApplied, assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Application = () => {
     const [applications, setApplications] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setApplications(jobsApplied);
@@ -27,15 +29,29 @@ const Application = () => {
         <div className="min-h-screen bg-gradient-to-br from-black via-slate-800 to-slate-900">
             <Navbar />
             
+           
+            
             {/* Hero Section */}
-            <div className="pt-20 pb-16">
+            <div className="pt-8 pb-16">
+                 {/* Back Button */}
+            <div className="pt-6 pb-2">
+                <div className="container mx-auto px-4 2xl:px-20">
+                    <button 
+                        onClick={() => navigate(-1)}
+                        className="flex items-center text-slate-400 hover:text-white mb-4 transition-colors duration-300 group"
+                    >
+                        <img src={assets.back_arrow_icon} alt="Back" className="h-5 w-5 mr-3 filter brightness-150 group-hover:brightness-200" />
+                        
+                    </button>
+                </div>
+            </div>
                 <div className="container mx-auto px-4 2xl:px-20">
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-3 mb-6">
                             <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center">
                                 <img src={assets.suitcase_icon} alt="Applications" className="w-6 h-6 filter brightness-0 invert" />
                             </div>
-                            <h1 className="text-4xl md:text-5xl font-bold gradient-text">
+                            <h1 className="text-4xl md:text-5xl font-bold text-blue-500">
                                 My Applications
                             </h1>
                         </div>

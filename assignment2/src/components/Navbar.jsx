@@ -11,6 +11,19 @@ const Navbar = () => {
     const [userType, setUserType] = useState('user'); // 'user' or 'recruiter'
     const [user, setUser] = useState(null);
 
+    // Load user info from localStorage on mount
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        const storedUserType = localStorage.getItem("userType");
+        const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+
+        if (storedUser && storedIsLoggedIn === "true") {
+            setUser(JSON.parse(storedUser));
+            setUserType(storedUserType || "user");
+            setIsLoggedIn(true);
+        }
+    }, []);
+
     // Lock body scroll when modal is open
     useEffect(() => {
         if (showRecruiterLogin) {
@@ -19,49 +32,67 @@ const Navbar = () => {
             document.body.style.overflow = 'unset';
         }
 
-        // Cleanup on component unmount
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [showRecruiterLogin]);
 
     const handleLogin = () => {
-        // Simulate login
-        setUser({
+        const loggedUser = {
             firstName: 'John',
             lastName: 'Doe',
             email: 'john.doe@example.com'
-        });
+        };
+        setUser(loggedUser);
         setIsLoggedIn(true);
+        setUserType("user");
+
+        // Save in localStorage
+        localStorage.setItem("user", JSON.stringify(loggedUser));
+        localStorage.setItem("userType", "user");
+        localStorage.setItem("isLoggedIn", "true");
+
         toast.success('Logged in successfully!');
     };
 
     const handleRecruiterLogin = () => {
-        // Simulate recruiter login
-        setUser({
+        const recruiter = {
             firstName: 'Recruiter',
             lastName: 'Admin',
             email: 'recruiter@company.com'
-        });
+        };
+        setUser(recruiter);
         setIsLoggedIn(true);
         setUserType('recruiter');
         setShowRecruiterLogin(false);
         setIsRecruiterSignup(false);
+
+        // Save in localStorage
+        localStorage.setItem("user", JSON.stringify(recruiter));
+        localStorage.setItem("userType", "recruiter");
+        localStorage.setItem("isLoggedIn", "true");
+
         toast.success('Recruiter logged in successfully!');
         navigate('/dashboard/view-applications');
     };
 
     const handleRecruiterSignup = () => {
-        // Simulate recruiter signup
-        setUser({
+        const newRecruiter = {
             firstName: 'New Recruiter',
             lastName: 'User',
             email: 'newrecruiter@company.com'
-        });
+        };
+        setUser(newRecruiter);
         setIsLoggedIn(true);
         setUserType('recruiter');
         setShowRecruiterLogin(false);
         setIsRecruiterSignup(false);
+
+        // Save in localStorage
+        localStorage.setItem("user", JSON.stringify(newRecruiter));
+        localStorage.setItem("userType", "recruiter");
+        localStorage.setItem("isLoggedIn", "true");
+
         toast.success('Recruiter account created successfully!');
         navigate('/dashboard/add-job');
     };
@@ -70,6 +101,12 @@ const Navbar = () => {
         setUser(null);
         setIsLoggedIn(false);
         setUserType('user');
+
+        // Clear localStorage
+        localStorage.removeItem("user");
+        localStorage.removeItem("userType");
+        localStorage.removeItem("isLoggedIn");
+
         toast.info('Logged out successfully');
         navigate('/');
     };
@@ -102,29 +139,18 @@ const Navbar = () => {
                                 <p className='text-slate-500'>|</p>
                             </>
                         )}
-                        {userType === 'recruiter' && (
-                            <>
-                                <Link to={'/dashboard'} className='text-blue-400 hover:text-blue-300 transition-colors duration-300'>
-                                    Dashboard
-                                </Link>
-                                <Link to={'/dashboard/add-job'} className='text-blue-400 hover:text-blue-300 transition-colors duration-300'>
-                                    Add Job
-                                </Link>
-                                <Link to={'/dashboard/manage-job'} className='text-blue-400 hover:text-blue-300 transition-colors duration-300'>
-                                    Manage Jobs
-                                </Link>
-                                <p className='text-slate-500'>|</p>
-                            </>
-                        )}
+                       
                         <p className='max-sm:hidden text-white font-medium'>
-                            Hi, {user.firstName + " " + user.lastName}
+                            Hi, {userType === 'recruiter' ? 'Recruiter Admin' : (user.firstName + " " + user.lastName)}
                         </p>
-                        <button 
-                            onClick={handleLogout}
-                            className='btn-animated bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-full text-sm hover:from-red-700 hover:to-red-800 transition-all duration-300'
-                        >
-                            Logout
-                        </button>
+                        {userType === 'user' && (
+                            <button 
+                                onClick={handleLogout}
+                                className='btn-animated bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-full text-sm hover:from-red-700 hover:to-red-800 transition-all duration-300'
+                            >
+                                Logout
+                            </button>
+                        )}
                     </div>
                 ) : (
                     <div className='flex gap-4 max-sm:text-xs'>
