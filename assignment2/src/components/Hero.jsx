@@ -2,26 +2,7 @@ import { useRef } from "react";
 import { assets } from "../assets/assets";
 
 const Hero = ({ onSearch }) => {
-    const titleRef = useRef(null);
-    const locationRef = useRef(null);
-
-    const handleSearch = () => {
-        const searchData = {
-            title: titleRef.current?.value || "",
-            location: locationRef.current?.value || "",
-        };
-        
-        if (onSearch) {
-            onSearch(searchData);
-        }
-        
-        // Scroll to job list
-        const jobListElement = document.getElementById('job-list');
-        if (jobListElement) {
-            jobListElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
+    
     return (
         <div className="container 2xl:px-20 mx-auto my-10 fade-in">
             <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-20 text-center mx-2 rounded-3xl shadow-2xl border border-slate-700/50 backdrop-blur-lg relative overflow-hidden">
@@ -38,36 +19,7 @@ const Hero = ({ onSearch }) => {
                         Opportunities and Take the First Step Toward Your Future!
                     </p>
                     
-                    <div className="glass border border-slate-600/50 rounded-2xl text-slate-300 max-w-2xl mx-4 sm:mx-auto p-2 backdrop-blur-md">
-                        <div className="flex items-center bg-slate-800/50 rounded-xl p-2">
-                            <div className="flex items-center flex-1 px-4">
-                                <img className="h-5 sm:h-6 filter brightness-200" src={assets.search_icon} alt="Search" />
-                                <input
-                                    type="text"
-                                    placeholder="Search for jobs..."
-                                    className="max-sm:text-xs p-3 bg-transparent outline-none w-full text-white placeholder-slate-400 focus:placeholder-slate-500 transition-all duration-300"
-                                    ref={titleRef}
-                                />
-                            </div>
-
-                            <div className="flex items-center flex-1 px-4 border-l border-slate-600">
-                                <img className="h-5 sm:h-6 filter brightness-200" src={assets.location_icon} alt="Location" />
-                                <input
-                                    type="text"
-                                    placeholder="Location..."
-                                    className="max-sm:text-xs p-3 bg-transparent outline-none w-full text-white placeholder-slate-400 focus:placeholder-slate-500 transition-all duration-300"
-                                    ref={locationRef}
-                                />
-                            </div>
-                            
-                            <button 
-                                onClick={handleSearch} 
-                                className="btn-animated bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 rounded-xl text-white font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
-                            >
-                                Search
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
