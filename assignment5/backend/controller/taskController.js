@@ -33,11 +33,22 @@ const getTaskById = async (req, res) => {
 
 const  createTask = async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, dueDate } = req.body;
     if (!description) {
       return res.status(400).json({ status: false, msg: "Description of task not found" });
     }
-    const task = await Task.create({ user: req.user.id, description });
+    
+    const taskData = { 
+      user: req.user.id, 
+      description,
+      isCompleted: false
+    };
+    
+    if (dueDate) {
+      taskData.dueDate = new Date(dueDate);
+    }
+    
+    const task = await Task.create(taskData);
     res.status(200).json({ task, status: true, msg: "Task created successfully.." });
   }
   catch (err) {
@@ -48,11 +59,8 @@ const  createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   try {
-    const { description } = req.body;
-    if (!description) {
-      return res.status(400).json({ status: false, msg: "Description of task not found" });
-    }
-
+    const { description, isCompleted, dueDate } = req.body;
+    
     if (!validateObjectId(req.params.taskId)) {
       return res.status(400).json({ status: false, msg: "Task id not valid" });
     }
@@ -66,7 +74,14 @@ const updateTask = async (req, res) => {
       return res.status(403).json({ status: false, msg: "You can't update task of another user" });
     }
 
-    task = await Task.findByIdAndUpdate(req.params.taskId, { description }, { new: true });
+    const updateData = {};
+    if (description !== undefined) updateData.description = description;
+    if (isCompleted !== undefined) updateData.isCompleted = isCompleted;
+    if (dueDate !== undefined) {
+      updateData.dueDate = dueDate ? new Date(dueDate) : null;
+    }
+
+    task = await Task.findByIdAndUpdate(req.params.taskId, updateData, { new: true });
     res.status(200).json({ task, status: true, msg: "Task updated successfully.." });
   }
   catch (err) {
