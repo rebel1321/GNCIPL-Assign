@@ -31,14 +31,7 @@ A beautiful and responsive React frontend for the Task Manager application with 
 - **Axios** - HTTP client for API calls
 - **Vite** - Fast build tool and development server
 
-## Enhanced Backend API
 
-The backend now supports the following task fields:
-- `description` (string, required) - Task description
-- `isCompleted` (boolean, default: false) - Completion status
-- `dueDate` (Date, optional) - When the task is due
-- `createdAt` (Date, auto-generated) - When task was created
-- `updatedAt` (Date, auto-generated) - When task was last modified
 
 ## Task Features
 
@@ -83,30 +76,6 @@ The frontend integrates with enhanced backend endpoints:
 - `PUT /api/task/:id` - Update task (supports `description`, `isCompleted`, `dueDate`)
 - `DELETE /api/task/:id` - Delete task
 
-### Example API Payloads
-
-**Creating a task with due date:**
-```json
-{
-  "description": "Complete project documentation",
-  "dueDate": "2025-09-25"
-}
-```
-
-**Updating task completion:**
-```json
-{
-  "isCompleted": true
-}
-```
-
-**Updating task with new due date:**
-```json
-{
-  "description": "Updated task description",
-  "dueDate": "2025-09-30"
-}
-```
 
 ## Getting Started
 
@@ -161,28 +130,5 @@ Make sure the backend server is running on `http://localhost:5000` before starti
 - **Yellow cards**: Tasks due today
 - **Blue cards**: Regular pending tasks
 
-## Design Theme
 
-The application features a stunning **blue and black gradient background** throughout:
-- Primary gradient: `from-blue-900 via-blue-800 to-black`
-- Glassmorphism effects with backdrop blur
-- Smooth transitions and hover effects
-- Consistent color scheme with blue accents
-- Enhanced visual feedback for task states
 
-## Contributing
-
-1. Follow the existing code style and conventions
-2. Maintain the blue and black gradient theme
-3. Ensure responsive design for all new components
-4. Add proper error handling and loading states
-5. Test on multiple screen sizes
-6. Include visual indicators for new task states
-
-## License
-
-This project is part of the GNCIPL Assignment series.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
